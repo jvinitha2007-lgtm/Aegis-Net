@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: aegisnet
+    runtime: node
+    plan: starter
+    region: oregon
+    numInstances: 1
+    buildCommand: npm install && npm install --prefix frontend && npm install --prefix backend && npm run build --prefix frontend
+    startCommand: npm start --prefix backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AEGIS_DATA_DIR
+        value: /var/data
+      - key: SESSION_SECRET
+        generateValue: true
+    disk:
+      name: aegisnet-data
+      mountPath: /var/data
+      sizeGB: 1
