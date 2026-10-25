@@ -2,7 +2,7 @@ services:
   - type: web
     name: aegisnet
     runtime: node
-    plan: starter
+    plan: free
     region: oregon
     buildCommand: npm install && npm install --prefix frontend && npm install --prefix backend
     startCommand: npm start --prefix backend
@@ -14,7 +14,4 @@ services:
         value: /var/data
       - key: SESSION_SECRET
         generateValue: true
-    disk:
-      name: aegisnet-data
-      mountPath: /var/data
-      sizeGB: 1
+    
