@@ -3,7 +3,8 @@ FROM node:20-bookworm-slim
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY ["AegisNet (6)/package.json", "./package.json"]
+COPY ["AegisNet (6)/package-lock.json", "./package-lock.json"]
 RUN npm install
 
 COPY ["AegisNet (6)/backend", "./backend"]
