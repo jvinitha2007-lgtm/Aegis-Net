@@ -6,8 +6,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-COPY backend ./backend
-COPY frontend ./frontend
+COPY ["AegisNet (6)/backend", "./backend"]
+COPY ["AegisNet (6)/frontend", "./frontend"]
 
 RUN npm install --prefix backend
 RUN npm install --prefix frontend
