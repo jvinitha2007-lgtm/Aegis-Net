@@ -1,14 +1,21 @@
 
-FROM node:20
+FROM node:20-bookworm-slim
 
 WORKDIR /app
 
-COPY ["AegisNet (6)/package*.json", "./"]
-RUN npm ci
+COPY package*.json ./
+RUN npm install
 
-COPY ["AegisNet (6)/", "./"]
+COPY backend ./backend
+COPY frontend ./frontend
 
-EXPOSE 3000
- 
+RUN npm install --prefix backend
+RUN npm install --prefix frontend
+RUN npm run build --prefix frontend
+
+ENV NODE_ENV=production
+ENV PORT=8080
+
+EXPOSE 8080
 
 CMD ["npm", "start", "--prefix", "backend"]
