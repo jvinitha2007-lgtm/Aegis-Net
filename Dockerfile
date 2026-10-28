@@ -9,5 +9,6 @@ RUN npm ci
 COPY ["AegisNet (6)/", "./"]
 
 EXPOSE 3000
+ 
 
-CMD ["npm", "start"]
+CMD ["npm", "start", "--prefix", "backend"]
