@@ -2,6 +2,7 @@ services:
   - type: web
     name: aegisnet
     runtime: node
+    rootDir: AegisNet (6)
     plan: free
     region: oregon
     buildCommand: npm install && npm install --prefix frontend && npm install --prefix backend
